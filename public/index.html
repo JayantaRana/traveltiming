@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelTiming</title>
+    <link rel="icon" type="image/x-icon" href="logo.jpeg">
+    <meta name="keywords" content="Translator, translations, google translates, jayanta rana, translate api, Jayanta Rana, online  translator,translator website">
+    <meta name="description" content="মেদিনীপুরে এই প্রথম ওয়েবসাইট এবং অ্যাপের মাধ্যমে খড়গপুর, মেদিনীপুর, দিঘা, ঘাটাল, চন্দ্রকোনা টাউন, বাঁকুড়া, হলদিয়া, হাওড়া, কলকাতা, আরামবাগ, বর্ধমান সহ আরো বিভিন্ন রুটের বাসের টাইম পেয়ে যান একটি মাত্র ক্লিক করে।">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <h3 class='bx bx-bus'> TravelTiming</h3> <br>
+        <a class="bx bx-link-external sideicon " href="https://jayantarana.netlify.app/" target="_blank"> My website</a><br>
+        
+        <a class="bx bx-envelope sideicon" href="https://jayantarana.netlify.app/#contact" target="_blank"> Contact</a><br>
+
+        <a class="bx bxs-share-alt sideicon" id="share"> Share</a>
+        <p id="version">v 1.1.0</p>
+    </div> 
+
+    <nav>
+        <div class="bx bx-menu" id="toggle-button" ></div>
+        <h3>TravelTiming</h3>
+    </nav>
+    <marquee>welcome to TravelTiming ❤️ Happy Journey </marquee>
+    
+ 
+   
+    <main>
+      
+      <div class="container">
+      <!-- <div class="bg-image"></div> -->
+        
+          <div class="search-section" id="search-form">
+              <h2>Find Your Bus</h2>
+              <div class="form-group">
+                  <label for="source">Source:</label>
+                  <!-- <input type="text" id="source" placeholder="Enter source bus stop"> -->
+                  <select  id="from" >
+                    <option value="Kharagpur">Kharagpur (খড়গপুর)</option>
+
+                    <option value="Medinipur">Medinipur (মেদিনীপুর)</option>
+                    <option value="Digha">Digha (দিঘা)</option>
+
+                    <option value="Supa">Supa (সুপা)</option>
+                    
+                    <option value="CK Town">CK Town (সিকে টাউন)</option>
+                    <option value="Bankura">Bankura (বাঁকুড়া)</option>
+                    <option value="Ghatal">Ghatal (ঘাটাল)</option>
+                    <option value="Haldia">Haldia (হলদিয়া)</option>
+
+                    <option value="Howrah">Howrah (হাওড়া)</option>
+                    <option value="Dunlop">Dunlop (ডানলপ)</option>
+                    <option value="Esplanade">Esplanade (এসপ্ল্যানেড)</option>
+                    <option value="Saltlake">Saltlake (সল্টলেক)</option>
+                    <option value="Arambagh">Arambagh (আরামবাগ)</option>
+                    <option value="Tarkeshwar">Tarkeshwar (তারকেশ্বর)</option>
+                    <option value="Bardhaman">Bardhaman (বর্ধমান)</option>
+                 </select>
+              
+                </div>
+              <button id="exchange-Button" class="bx bx-sort exchange-btn" ></button> 
+
+              <div class="form-group">
+                  <label for="destination">Destination:</label>
+                  <!-- <input type="text" id="destination" placeholder="Enter destination bus stop"> -->
+                  <select  id="to" >
+                    <option value="Medinipur">Medinipur (মেদিনীপুর)</option>
+
+                    <option value="Kharagpur">Kharagpur (খড়গপুর)</option>
+                    <option value="Digha">Digha (দিঘা)</option>
+                    <option value="Supa">Supa (সুপা)</option>
+                    
+                    <option value="CK Town">CK Town (সিকে টাউন)</option>
+                    <option value="Bankura">Bankura (বাঁকুড়া)</option>
+                    <option value="Ghatal">Ghatal (ঘাটাল)</option>
+                    <option value="Haldia">Haldia (হলদিয়া)</option>
+                   
+                    
+                    
+
+                    <option value="Howrah">Howrah (হাওড়া)</option>
+                    <option value="Dunlop">Dunlop (ডানলপ)</option>
+                    <option value="Esplanade">Esplanade (এসপ্ল্যানেড)</option>
+                    <option value="Saltlake">Saltlake (সল্টলেক)</option>
+                    <option value="Arambagh">Arambagh (আরামবাগ)</option>
+                    <option value="Tarkeshwar">Tarkeshwar (তারকেশ্বর)</option>
+                    <option value="Bardhaman">Bardhaman (বর্ধমান)</option>
+    
+                 </select>
+              
+                </div>
+              <button id="searchButton" class="search-btn"  onclick="searchBuses()">Search</button>
+          </div>
+          <div id="results"></div>
+        
+      </div>
+  </main>
+  <div class="city-background">
+    <img src="road-back.jpg" alt="City Background" class="background-image">
+    <div class="moving-bus">
+        <img src="th.png" alt="Moving Bus">
+    </div>
+    <div id="road"></div>
+</div>
+
+<p id="up-features">Upcoming features</p>
+<!-- slider effect -->
+<div class="slider">
+  <div class="slides">
+      <div class="slide"><img src="contact-num.jpg" alt="Image 1"></div>
+      <div class="slide"><img src="ai-assistant.jpg" alt="Image 2"></div>
+      <div class="slide"><img src="filter.jpg" alt="Image 3"></div>
+      <div class="slide"><img src="map.jpg" alt="Image 4"></div>
+      <div class="slide"><img src="contact-num.jpg" alt="Image 1"></div>
+
+
+  </div>
+</div>
+
+<footer>
+  <p>Copyright &copy; 2024 TravelTiming | 
+  Design & Developed by <a href="https://jayantarana.netlify.app">Jayanta Rana</a></p>
+</footer>
+    <script src="script.js"></script>
+
+
+
+    <script>
+       function searchBuses() {
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+
+            // Redirect to results page with query parameters
+            window.location.href = `/results.html?from=${from}&to=${to}`;
+        }
+
+
+
+
+
+        
+        document.getElementById('exchange-Button').addEventListener('click', function() {
+    const sourceInput = document.getElementById('from');
+    const destinationInput = document.getElementById('to');
+    const temp = sourceInput.value;
+    sourceInput.value = destinationInput.value;
+    destinationInput.value = temp;
+});
+
+
+let share=document.getElementById('share');
+const shareData={
+    title:"TravelTiming",
+    // text:"Offers accurate and fast translations.",
+    url:"https://traveltiming.vercel.app",
+};
+share.addEventListener('click',async()=>{
+    try{
+        await
+        navigator.share(shareData);
+    }catch(err){
+        console.log(err);
+    }
+})
+
+
+  </script>
+
+
+</body>
+</html>

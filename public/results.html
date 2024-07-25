@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   
+    <title>TravelTiming Results</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4db;
+}
+
+/* navbar design start */
+nav{
+   display: flex; 
+   background-color: rgb(45, 175, 241);
+   width: 100%;
+   padding: 0px;
+   position: fixed;
+   
+}
+nav .arow{
+    display: flex;
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    align-items: center;
+    padding-left: 7px;
+    
+}
+nav h3{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    padding-left: 7px;
+}
+/* navebar design end */
+
+h2 {
+    margin: 20px;
+   
+    padding-top: 60px;
+    
+    
+}
+
+#results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #00d0ff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+       <div class='bx bx-arrow-back arow' id="toggle-button"></div></a>
+        <h3  >TravelTiming</h3>
+    </nav>
+   
+
+    <h2 id="heading">TravelTiming Results</h2>
+    <div id="results-container"></div>
+    <script>
+// Fetch search results when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const from = urlParams.get('from');
+    const to = urlParams.get('to');
+
+    // Update the heading
+    const heading = document.getElementById('heading');
+    heading.textContent = `${from} - ${to}`;
+
+    fetch(`/search?from=${from}&to=${to}`)
+        .then(response => response.json())
+        .then(data => {
+            displayResults(data, from, to);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+});
+
+function displayResults(data, from, to) {
+    const container = document.getElementById('results-container');
+    container.innerHTML = ''; // Clear previous results
+
+    if (data.length === 0) {
+        // Display message when no results found
+        const noResults = document.createElement('p');
+        noResults.textContent = `No bus available from ${from} to ${to} / We wil update this route very soon.`;
+        container.appendChild(noResults);
+    } else {
+        // Display results in card view
+        data.forEach(bus => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+
+            const nameEl = document.createElement('p');
+            nameEl.textContent = `Bus name: ${bus.name}`;
+
+            const from = document.createElement('p');
+            from.textContent = `From: ${bus.from} `;
+
+            const to = document.createElement('p');
+            to.textContent = `To: ${bus.to} `;
+
+            const departureEl = document.createElement('p');
+            departureEl.textContent = `Departure: ${bus.departureTime}`;
+
+            const routeEl = document.createElement('p');
+            routeEl.textContent = `Route: ${bus.route}`;
+
+            const moreInfoEl = document.createElement('p');
+            moreInfoEl.textContent = `More info: ${bus.moreInfo}`;
+
+            card.appendChild(nameEl);
+            // card.appendChild(from);
+            // card.appendChild(to);
+
+            card.appendChild(departureEl);
+            card.appendChild(routeEl);
+            card.appendChild(moreInfoEl);
+
+            container.appendChild(card);
+        });
+    }
+}
+
+// back button
+document.getElementById('toggle-button').addEventListener('click', function() {
+    window.location.href = 'index.html';
+});
+
+
+
+    </script>
+</body>
+</html>
