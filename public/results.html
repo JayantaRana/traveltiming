@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-   
+    <link rel="icon" type="image/x-icon" href="logo.jpeg">
+    <meta name="google-site-verification" content="PinMGiErDPpKQopcRvj07gwuph0MpJ0r7M-QDqvO2kM" />
     <title>TravelTiming Results</title>
     <style>
 body {
@@ -109,7 +110,7 @@ function displayResults(data, from, to) {
     if (data.length === 0) {
         // Display message when no results found
         const noResults = document.createElement('p');
-        noResults.textContent = `No bus available from ${from} to ${to} / We wil update this route very soon.`;
+        noResults.textContent = `No bus available from ${from} to ${to} / We will update this route very soon.`;
         container.appendChild(noResults);
     } else {
         // Display results in card view
