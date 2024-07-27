@@ -13,6 +13,17 @@
 </head>
 <body>
 
+    <div id="preloader">
+        <img src="logo.jpeg" alt="BusYatra Logo" class="preloader-logo">
+        <div class="loading-text">
+            Loading
+            <span class="dot">.</span>
+            <span class="dot">.</span>
+            <span class="dot">.</span>
+        </div>
+    </div>
+    <div class="content">
+    
     <div class="sidebar" id="sidebar">
         <h3 class='bx bx-bus'> TravelTiming</h3> <br>
         <a class="bx bx-link-external sideicon " href="https://jayantarana.netlify.app/" target="_blank"> My website</a><br>
@@ -127,11 +138,24 @@
   <p>Copyright &copy; 2024 TravelTiming | 
   Design & Developed by <a href="https://jayantarana.netlify.app">Jayanta Rana</a></p>
 </footer>
+    </div>
     <script src="script.js"></script>
 
 
 
     <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+    // Hide the preloader and show the content once the page is fully loaded
+    window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        preloader.style.display = 'none';
+        const content = document.querySelector('.content');
+        content.style.display = 'block';
+    });
+});
+
+        
        function searchBuses() {
             const from = document.getElementById('from').value;
             const to = document.getElementById('to').value;
