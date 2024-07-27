@@ -72,6 +72,9 @@ h2 {
     margin: 5px 0;
     font-size: 20px;
 }
+.bold-text {
+    color: #0898f1;
+}
 
     </style>
 </head>
@@ -119,22 +122,28 @@ function displayResults(data, from, to) {
             card.classList.add('card');
 
             const nameEl = document.createElement('p');
-            nameEl.textContent = `Bus name: ${bus.name}`;
+            nameEl.innerHTML = `<span class="bold-text">Bus name:</span> ${bus.name}`;
+
 
             const from = document.createElement('p');
-            from.textContent = `From: ${bus.from} `;
+            from.innerHTML= `<span class="bold-text">From:</span> ${bus.from}`;
+
 
             const to = document.createElement('p');
-            to.textContent = `To: ${bus.to} `;
+            to.innerHTML = `<span class="bold-text">To:</span> ${bus.to}`;
+
 
             const departureEl = document.createElement('p');
-            departureEl.textContent = `Departure: ${bus.departureTime}`;
+            departureEl.innerHTML = `<span class="bold-text">Departure:</span> ${bus.departureTime}`;
+
 
             const routeEl = document.createElement('p');
-            routeEl.textContent = `Route: ${bus.route}`;
+            routeEl.innerHTML = `<span class="bold-text">Route:</span> ${bus.route}`;
+
 
             const moreInfoEl = document.createElement('p');
-            moreInfoEl.textContent = `More info: ${bus.moreInfo}`;
+            moreInfoEl.innerHTML = `<span class="bold-text">More info:</span> ${bus.moreInfo}`;
+
 
             card.appendChild(nameEl);
             // card.appendChild(from);
