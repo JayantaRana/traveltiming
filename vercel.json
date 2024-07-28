@@ -11,14 +11,8 @@
     }
   ],
   "routes": [
-    {
-      "src": "/search",
-      "dest": "/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/server.js"
-    }
+    { "src": "/search", "dest": "/server.js" },
+    { "src": "/(.*)", "dest": "/server.js" }
   ]
 }
 
