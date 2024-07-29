@@ -24,7 +24,7 @@ db.once('open', () => {
     console.log('Connected to MongoDB Atlas');
 });
 
-app.use('/api', busRoutes);//edit
+app.use('/', busRoutes);//edit
 
 
 
