@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heading = document.getElementById('heading');
     heading.textContent = `${from} - ${to}`;
 
-    fetch(`https://traveltiming.onrender.com/search?from=${from}&to=${to}`)
+    fetch(`/search?from=${from}&to=${to}`)
         .then(response => response.json())
         .then(data => {
             displayResults(data, from, to);
