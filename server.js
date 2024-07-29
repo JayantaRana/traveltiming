@@ -8,7 +8,7 @@ const cors = require('cors');//edit
 const app = express();
 const port = process.env.PORT || 4000;//edit
 require('dotenv').config();
-app.use(cors());//edit
+app.use(cors({ origin: 'https://traveltiming.vercel.app' }));//edit
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
