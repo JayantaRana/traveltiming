@@ -15,7 +15,7 @@ document.getElementById('search-form').addEventListener('submit', async (event) 
    
 
     try {
-        const response = await fetch(`/search?from=${from}&to=${to}`);
+        const response = await fetch(`https://traveltiming.onrender.com/search?from=${from}&to=${to}`);
         const results = await response.json();
 
         localStorage.setItem('searchResults', JSON.stringify(results));
